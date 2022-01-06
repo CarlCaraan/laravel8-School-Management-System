@@ -51,6 +51,12 @@ class UserController extends Controller
 
     public function UserUpdate(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'email' => 'required|unique:users',
+            'name' => 'required',
+            'usertype' => 'required',
+        ]);
+
         $data = User::find($id);
         $data->usertype = $request->usertype;
         $data->name = $request->name;

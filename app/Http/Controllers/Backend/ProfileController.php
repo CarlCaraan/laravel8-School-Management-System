@@ -28,6 +28,14 @@ class ProfileController extends Controller
 
     public function ProfileStore(Request $request)
     {
+        $validatedData = $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'address' => 'required',
+            'mobile' => 'required',
+        ]);
+
         $data = User::find(Auth::user()->id);
         $data->name = $request->name;
         $data->email = $request->email;
@@ -51,6 +59,8 @@ class ProfileController extends Controller
         return redirect()->route('profile.view')->with($notification);
     } //End Method
 
+    //========= PASSWORD SECTION =========//
+
     public function PasswordView()
     {
         return view('backend.user.edit_password');
@@ -72,7 +82,7 @@ class ProfileController extends Controller
 
             $notification = array(
                 'message' => 'User Password Updated Successfully',
-                'alert-type' => 'success',
+                'alert-type' => 'info',
             );
 
             return redirect()->route('login')->with($notification);
