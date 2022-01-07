@@ -63,8 +63,18 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ ($route == 'student.class.view') || ($route == 'student.class.edit') ? 'active' : '' }}"><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
-                    <li class="{{ ($route == 'student.year.view') || ($route == 'student.year.edit') ? 'active' : '' }}"><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+                    <li class="{{ ($route == 'student.class.view') ||
+                        ($route == 'student.class.edit') ||
+                        ($route == 'student.class.add') ? 'active' : '' }}"><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+                    <li class="{{ ($route == 'student.year.view') ||
+                        ($route == 'student.year.edit') ||
+                        ($route == 'student.year.add') ? 'active' : '' }}"><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+                    <li class="{{ ($route == 'student.group.view') ||
+                        ($route == 'student.group.edit') ||
+                        ($route == 'student.group.add') ? 'active' : '' }}"><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+                    <li class="{{ ($route == 'student.shift.view') ||
+                        ($route == 'student.shift.edit') ||
+                        ($route == 'student.shift.add') ? 'active' : '' }}"><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
                 </ul>
             </li>
 
