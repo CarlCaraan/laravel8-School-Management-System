@@ -75,6 +75,9 @@ $route = Route::current()->getName();
                     <li class="{{ ($route == 'student.shift.view') ||
                         ($route == 'student.shift.edit') ||
                         ($route == 'student.shift.add') ? 'active' : '' }}"><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+                    <li class="{{ ($route == 'fee.category.view') ||
+                        ($route == 'fee.category.edit') ||
+                        ($route == 'fee.category.add') ? 'active' : '' }}"><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
                 </ul>
             </li>
 
