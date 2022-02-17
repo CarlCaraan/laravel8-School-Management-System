@@ -30,7 +30,7 @@ $route = Route::current()->getName();
 
             <li class="treeview {{ ($prefix == '/users') ? 'active' : '' }}">
                 <a href="#">
-                    <i data-feather="message-circle"></i>
+                    <i data-feather="users"></i>
                     <span>Manage User</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
@@ -44,7 +44,7 @@ $route = Route::current()->getName();
 
             <li class="treeview {{ ($prefix == '/profile') ? 'active' : '' }}">
                 <a href="#">
-                    <i data-feather="mail"></i> <span>Manage Profile</span>
+                    <i data-feather="user"></i> <span>Manage Profile</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -57,7 +57,7 @@ $route = Route::current()->getName();
 
             <li class="treeview {{ ($prefix == '/setups') ? 'active' : '' }}">
                 <a href="#">
-                    <i data-feather="mail"></i> <span>Setup Management</span>
+                    <i data-feather="menu"></i> <span>Setup Management</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
