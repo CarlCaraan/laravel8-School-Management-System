@@ -82,6 +82,9 @@ $route = Route::current()->getName();
                         ($route == 'fee.amount.edit') ||
                         ($route == 'fee.amount.add') ||
                         ($route == 'fee.amount.details') ? 'active' : '' }}"><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
+                    <li class="{{ ($route == 'exam.type.view') ||
+                        ($route == 'exam.type.edit') ||
+                        ($route == 'exam.type.add') ? 'active' : '' }}"><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
                 </ul>
             </li>
 
