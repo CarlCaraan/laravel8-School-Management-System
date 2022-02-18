@@ -85,6 +85,9 @@ $route = Route::current()->getName();
                     <li class="{{ ($route == 'exam.type.view') ||
                         ($route == 'exam.type.edit') ||
                         ($route == 'exam.type.add') ? 'active' : '' }}"><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+                    <li class="{{ ($route == 'school.subject.view') ||
+                        ($route == 'school.subject.edit') ||
+                        ($route == 'school.subject.add') ? 'active' : '' }}"><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
                 </ul>
             </li>
 
