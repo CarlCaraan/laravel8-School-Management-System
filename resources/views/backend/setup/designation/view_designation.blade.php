@@ -11,8 +11,8 @@
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Assign Subject List</h3>
-                            <a href="{{ route('assign.subject.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add Assign Subject</a>
+                            <h3 class="box-title">Designation List</h3>
+                            <a href="{{ route('designation.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add Designation</a>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -21,19 +21,18 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">SL</th>
-                                            <th>Class Name</th>
+                                            <th>Name</th>
                                             <th width="25%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($allData as $key => $assign)
+                                        @foreach ($allData as $key => $designation)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
-                                            <td>{{ $assign['student_class']['name'] }}</td>
+                                            <td>{{ $designation->name }}</td>
                                             <td>
-                                                <a href="{{ route('assign.subject.edit', $assign->class_id) }}" class="btn btn-info">Edit</a>
-                                                <a href="{{ route('assign.subject.details', $assign->class_id) }}" class="btn btn-primary">Details</a>
-                                                <a href="{{ route('assign.subject.delete', $assign->class_id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                                <a href="{{ route('designation.edit',$designation->id) }}" class="btn btn-info">Edit</a>
+                                                <a href="{{ route('designation.delete',$designation->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

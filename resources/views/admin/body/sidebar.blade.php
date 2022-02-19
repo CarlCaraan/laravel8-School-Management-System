@@ -90,7 +90,11 @@ $route = Route::current()->getName();
                         ($route == 'school.subject.add') ? 'active' : '' }}"><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
                     <li class="{{ ($route == 'assign.subject.view') ||
                         ($route == 'assign.subject.edit') ||
-                        ($route == 'assign.subject.add') ? 'active' : '' }}"><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+                        ($route == 'assign.subject.add') ? 'active' : '' ||
+                        ($route == 'assign.subject.details') ? 'active' : '' }}"><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+                    <li class="{{ ($route == 'designation.view') ||
+                        ($route == 'designation.edit') ||
+                        ($route == 'designation.add') ? 'active' : '' }}"><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation</a></li>
                 </ul>
             </li>
 

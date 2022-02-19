@@ -90,7 +90,7 @@ class FeeAmountController extends Controller
                 'alert-type' => 'success',
             );
 
-            return redirect()->route('fee.amount.view')->with($notification);
+            return redirect()->route('fee.amount.details', $fee_category_id)->with($notification);
         } // End else
     }
 
