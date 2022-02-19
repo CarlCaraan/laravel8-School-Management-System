@@ -27,7 +27,7 @@ $route = Route::current()->getName();
                     <span>Dashboard</span>
                 </a>
             </li>
-
+            @if(Auth::user()->role == 'Admin')
             <li class="treeview {{ ($prefix == '/users') ? 'active' : '' }}">
                 <a href="#">
                     <i data-feather="users"></i>
@@ -41,6 +41,7 @@ $route = Route::current()->getName();
                     <li class="{{ ($route == 'user.add') ? 'active' : '' }}"><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
                 </ul>
             </li>
+            @endif
 
             <li class="treeview {{ ($prefix == '/profile') ? 'active' : '' }}">
                 <a href="#">
@@ -95,6 +96,20 @@ $route = Route::current()->getName();
                     <li class="{{ ($route == 'designation.view') ||
                         ($route == 'designation.edit') ||
                         ($route == 'designation.add') ? 'active' : '' }}"><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview {{ ($prefix == '/students') ? 'active' : '' }}">
+                <a href="#">
+                    <i data-feather="menu"></i> <span>Student Management</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'student.registration.view') ||
+                        ($route == 'student.registration.edit') ||
+                        ($route == 'student.registration.add') ? 'active' : '' }}"><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
                 </ul>
             </li>
 

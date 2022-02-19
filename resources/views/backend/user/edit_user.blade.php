@@ -30,8 +30,8 @@
                                                     <div class="controls">
                                                         <select name="usertype" id="select" class="form-control">
                                                             <option value="" selected="" disabled="">Select Role</option>
-                                                            <option value="Admin" {{ ($editData->usertype == "Admin" ? "selected" : "") }}>Admin</option>
-                                                            <option value="User" {{ ($editData->usertype == "User" ? "selected" : "") }}>User</option>
+                                                            <option value="Admin" {{ ($editData->role == "Admin" ? "selected" : "") }}>Admin</option>
+                                                            <option value="Operator" {{ ($editData->role == "Operator" ? "selected" : "") }}>Operator</option>
                                                         </select>
                                                         @error('usertype')
                                                         <span class="text-danger">{{ $message }}</span>
