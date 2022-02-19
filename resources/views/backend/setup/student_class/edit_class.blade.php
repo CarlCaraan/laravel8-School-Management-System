@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
 
+@section('title') Edit Student Class | ASMS @endsection
+
 @section('admin')
 <div class="content-wrapper">
     <div class="container-full">

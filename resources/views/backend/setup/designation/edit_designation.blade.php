@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') Edit | Designation @endsection
+@section('title') Edit Designation | ASMS @endsection
 
 @section('admin')
 <div class="content-wrapper">

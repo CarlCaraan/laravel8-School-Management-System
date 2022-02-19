@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
 
+@section('title') Add Designation | ASMS @endsection
+
 @section('admin')
 <div class="content-wrapper">
     <div class="container-full">

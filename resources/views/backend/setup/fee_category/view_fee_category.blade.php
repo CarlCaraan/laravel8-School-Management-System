@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
 
+@section('title') View Fee Category | ASMS @endsection
+
 @section('admin')
 <div class="content-wrapper">
     <div class="container-full">
