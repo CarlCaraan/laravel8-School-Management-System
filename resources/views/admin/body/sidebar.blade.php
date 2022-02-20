@@ -109,7 +109,9 @@ $route = Route::current()->getName();
                 <ul class="treeview-menu">
                     <li class="{{ ($route == 'student.registration.view') ||
                         ($route == 'student.registration.edit') ||
-                        ($route == 'student.registration.add') ? 'active' : '' }}"><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
+                        ($route == 'student.registration.add') ||
+                        ($route == 'student.year.class.wise') ||
+                        ($route == 'student.registration.promotion') ? 'active' : '' }}"><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
                 </ul>
             </li>
 
