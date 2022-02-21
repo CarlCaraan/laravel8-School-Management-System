@@ -148,10 +148,11 @@ Route::prefix('students')->group(function(){
     Route::get('/register/view', [StudentRegistrationController::class, 'ViewStudentRegister'])->name('student.registration.view');
     Route::get('/register/add', [StudentRegistrationController::class, 'StudentRegisterAdd'])->name('student.registration.add');
     Route::post('/register/store', [StudentRegistrationController::class, 'StudentRegisterStore'])->name('student.registration.store');
-    Route::get('/year/class/wise', [StudentRegistrationController::class, 'StudentYearClassWise'])->name('student.year.class.wise');
+    Route::get('/year/class/wise', [StudentRegistrationController::class, 'StudentYearClassWise'])->name('student.year.class.wise'); // Search Function
     Route::get('/register/edit/{student_id}', [StudentRegistrationController::class, 'StudentRegisterEdit'])->name('student.registration.edit');
     Route::post('/register/update/{student_id}', [StudentRegistrationController::class, 'StudentRegisterUpdate'])->name('student.registration.update');
-    Route::get('/register/promotion/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromotion'])->name('student.registration.promotion');
-    Route::post('/register/promote/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromote'])->name('student.registration.promote');
+    Route::get('/register/promotion/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromotion'])->name('student.registration.promotion'); // Promotion Edit View
+    Route::post('/register/promote/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromote'])->name('student.registration.promote'); // Promotion Function
     Route::get('/register/delete/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDelete'])->name('student.registration.delete');
+    Route::get('/register/details/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDetails'])->name('student.registration.details'); // Promotion Edit View
 });

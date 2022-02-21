@@ -12,6 +12,7 @@ use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
 use DB;
+use PDF;
 
 class StudentRegistrationController extends Controller
 {
@@ -265,5 +266,17 @@ class StudentRegistrationController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->route('student.registration.view')->with($notification);
+    }
+
+    public function StudentRegisterDetails($student_id)
+    {
+        // Get other data from other 3 tables using with
+        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
+
+        // ========= Start Niklas Laravel PDF =========
+        $pdf = PDF::loadView('backend.student.student_registration.student_details_pdf', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
+        // ========= End Niklas Laravel PDF =========
     }
 }
