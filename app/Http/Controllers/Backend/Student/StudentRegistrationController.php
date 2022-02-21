@@ -196,7 +196,7 @@ class StudentRegistrationController extends Controller
         $data['groups'] = StudentGroup::all();
         $data['shifts'] = StudentShift::all();
 
-        // Get other data from other 3 tables using with
+        // Get other data from other 2 tables using models method
         $data['editData'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
         return view('backend.student.student_registration.student_promotion', $data);
     }
@@ -270,7 +270,7 @@ class StudentRegistrationController extends Controller
 
     public function StudentRegisterDetails($student_id)
     {
-        // Get other data from other 3 tables using with
+        // Get other data from other 2 tables using models method
         $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
 
         // ========= Start Niklas Laravel PDF =========
