@@ -153,5 +153,5 @@ Route::prefix('students')->group(function(){
     Route::post('/register/update/{student_id}', [StudentRegistrationController::class, 'StudentRegisterUpdate'])->name('student.registration.update');
     Route::get('/register/promotion/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromotion'])->name('student.registration.promotion');
     Route::post('/register/promote/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromote'])->name('student.registration.promote');
-    // Route::get('/designation/delete/{id}', [StudentRegistrationController::class, 'DesignationDelete'])->name('designation.delete');
+    Route::get('/register/delete/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDelete'])->name('student.registration.delete');
 });

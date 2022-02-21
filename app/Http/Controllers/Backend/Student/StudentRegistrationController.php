@@ -250,4 +250,20 @@ class StudentRegistrationController extends Controller
         );
         return redirect()->route('student.registration.view')->with($notification);
     }
+
+    public function StudentRegisterDelete($student_id)
+    {
+        $user = User::where('id', $student_id)->first();
+        @unlink(public_path('upload/student_images/' . $user->image));
+
+        User::where('id', $student_id)->delete();
+        AssignStudent::where('student_id', $student_id)->delete();
+        DiscountStudent::where('assign_student_id', $student_id)->delete();
+
+        $notification = array(
+            'message' => 'Student Deleted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('student.registration.view')->with($notification);
+    }
 }
