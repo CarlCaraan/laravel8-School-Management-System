@@ -66,36 +66,56 @@ $route = Route::current()->getName();
                 <ul class="treeview-menu">
                     <li class="{{ ($route == 'student.class.view') ||
                         ($route == 'student.class.edit') ||
-                        ($route == 'student.class.add') ? 'active' : '' }}"><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+                        ($route == 'student.class.add') ? 'active' : '' }}">
+                        <a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a>
+                    </li>
                     <li class="{{ ($route == 'student.year.view') ||
                         ($route == 'student.year.edit') ||
-                        ($route == 'student.year.add') ? 'active' : '' }}"><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+                        ($route == 'student.year.add') ? 'active' : '' }}">
+                        <a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a>
+                    </li>
                     <li class="{{ ($route == 'student.group.view') ||
                         ($route == 'student.group.edit') ||
-                        ($route == 'student.group.add') ? 'active' : '' }}"><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+                        ($route == 'student.group.add') ? 'active' : '' }}">
+                        <a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a>
+                    </li>
                     <li class="{{ ($route == 'student.shift.view') ||
                         ($route == 'student.shift.edit') ||
-                        ($route == 'student.shift.add') ? 'active' : '' }}"><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+                        ($route == 'student.shift.add') ? 'active' : '' }}">
+                        <a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a>
+                    </li>
                     <li class="{{ ($route == 'fee.category.view') ||
                         ($route == 'fee.category.edit') ||
-                        ($route == 'fee.category.add') ? 'active' : '' }}"><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
+                        ($route == 'fee.category.add') ? 'active' : '' }}">
+                        <a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a>
+                    </li>
                     <li class="{{ ($route == 'fee.amount.view') ||
                         ($route == 'fee.amount.edit') ||
                         ($route == 'fee.amount.add') ||
-                        ($route == 'fee.amount.details') ? 'active' : '' }}"><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
+                        ($route == 'fee.amount.details') ? 'active' : '' }}">
+                        <a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a>
+                    </li>
                     <li class="{{ ($route == 'exam.type.view') ||
                         ($route == 'exam.type.edit') ||
-                        ($route == 'exam.type.add') ? 'active' : '' }}"><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+                        ($route == 'exam.type.add') ? 'active' : '' }}">
+                        <a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a>
+                    </li>
                     <li class="{{ ($route == 'school.subject.view') ||
                         ($route == 'school.subject.edit') ||
-                        ($route == 'school.subject.add') ? 'active' : '' }}"><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
+                        ($route == 'school.subject.add') ? 'active' : '' }}">
+                        <a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a>
+                    </li>
                     <li class="{{ ($route == 'assign.subject.view') ||
                         ($route == 'assign.subject.edit') ||
                         ($route == 'assign.subject.add') ? 'active' : '' ||
-                        ($route == 'assign.subject.details') ? 'active' : '' }}"><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+                        ($route == 'assign.subject.details') ? 'active' : '' }}">
+                        <a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a>
+                    </li>
                     <li class="{{ ($route == 'designation.view') ||
                         ($route == 'designation.edit') ||
-                        ($route == 'designation.add') ? 'active' : '' }}"><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation</a></li>
+                        ($route == 'designation.add') ? 'active' : '' }}">
+                        <a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation</a>
+                    </li>
                 </ul>
             </li>
 
@@ -111,7 +131,14 @@ $route = Route::current()->getName();
                         ($route == 'student.registration.edit') ||
                         ($route == 'student.registration.add') ||
                         ($route == 'student.year.class.wise') ||
-                        ($route == 'student.registration.promotion') ? 'active' : '' }}"><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
+                        ($route == 'student.registration.promotion') ? 'active' : '' }}">
+                        <a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a>
+                    </li>
+                    <li class="{{ ($route == 'roll.generate.view') ||
+                        ($route == 'roll.generate.edit') ||
+                        ($route == 'roll.generate.add') ? 'active' : '' }}">
+                        <a href="{{ route('roll.generate.view') }}"><i class="ti-more"></i>Roll Generate</a>
+                    </li>
                 </ul>
             </li>
 

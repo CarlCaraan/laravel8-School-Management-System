@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
+use App\Http\Controllers\Backend\Student\StudentRollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,4 +156,9 @@ Route::prefix('students')->group(function(){
     Route::post('/register/promote/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromote'])->name('student.registration.promote'); // Promotion Function
     Route::get('/register/delete/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDelete'])->name('student.registration.delete');
     Route::get('/register/details/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDetails'])->name('student.registration.details'); // Promotion Edit View
+
+    // Roll Generate
+    Route::get('/roll/generate/view', [StudentRollController::class, 'ViewStudentRoll'])->name('roll.generate.view');
+    Route::get('/register/getstudents', [StudentRollController::class, 'GetStudents'])->name('student.registration.getstudents'); // Json Search Filter
+    Route::post('/roll/generate/store', [StudentRollController::class, 'StudentRollStore'])->name('roll.generate.store');
 });
