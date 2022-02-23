@@ -134,10 +134,17 @@ $route = Route::current()->getName();
                         ($route == 'student.registration.promotion') ? 'active' : '' }}">
                         <a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a>
                     </li>
-                    <li class="{{ ($route == 'roll.generate.view') ||
-                        ($route == 'roll.generate.edit') ||
-                        ($route == 'roll.generate.add') ? 'active' : '' }}">
+                    <li class="{{ ($route == 'roll.generate.view') ? 'active' : '' }}">
                         <a href="{{ route('roll.generate.view') }}"><i class="ti-more"></i>Roll Generate</a>
+                    </li>
+                    <li class="{{ ($route == 'registration.fee.view') ? 'active' : '' }}">
+                        <a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Registration Fee</a>
+                    </li>
+                    <li class="{{ ($route == 'monthly.fee.view') ? 'active' : '' }}">
+                        <a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Monthly Fee</a>
+                    </li>
+                    <li class="{{ ($route == 'exam.fee.view') ? 'active' : '' }}">
+                        <a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee</a>
                     </li>
                 </ul>
             </li>

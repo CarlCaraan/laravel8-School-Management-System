@@ -16,6 +16,9 @@ use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
+use App\Http\Controllers\Backend\Student\RegistrationFeeController;
+use App\Http\Controllers\Backend\Student\MonthlyFeeController;
+use App\Http\Controllers\Backend\Student\ExamFeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,8 +160,23 @@ Route::prefix('students')->group(function(){
     Route::get('/register/delete/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDelete'])->name('student.registration.delete');
     Route::get('/register/details/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDetails'])->name('student.registration.details'); // Promotion Edit View
 
-    // Roll Generate
+    // Student Roll Generate
     Route::get('/roll/generate/view', [StudentRollController::class, 'ViewStudentRoll'])->name('roll.generate.view');
-    Route::get('/register/getstudents', [StudentRollController::class, 'GetStudents'])->name('student.registration.getstudents'); // Json Search Filter
+    Route::get('/register/getstudents', [StudentRollController::class, 'GetStudents'])->name('student.registration.getstudents'); // Json Get All Data using Search Filter 
     Route::post('/roll/generate/store', [StudentRollController::class, 'StudentRollStore'])->name('roll.generate.store');
+
+    // Student Registration Fee
+    Route::get('/registration/fee/view', [RegistrationFeeController::class, 'ViewRegistrationFee'])->name('registration.fee.view');
+    Route::get('/registration/fee/classwise', [RegistrationFeeController::class, 'ViewRegistrationFeeClasswise'])->name('student.registration.fee.classwise.get'); // Handbars Get All Data
+    Route::get('/registration/fee/payslip', [RegistrationFeeController::class, 'ViewRegistrationFeePayslip'])->name('student.registration.fee.payslip'); 
+
+    // Student Monthly Fee
+    Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'ViewMonthlyFee'])->name('monthly.fee.view');
+    Route::get('/monthly/fee/classwise', [MonthlyFeeController::class, 'ViewMonthlyFeeClasswise'])->name('student.monthly.fee.classwise.get'); // Handbars Get All Data
+    Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'ViewMonthlyFeePayslip'])->name('student.monthly.fee.payslip');
+
+    // Student Exam Fee
+    Route::get('/exam/fee/view', [ExamFeeController::class, 'ViewExamFee'])->name('exam.fee.view');
+    Route::get('/exam/fee/classwise', [ExamFeeController::class, 'ViewExamFeeClasswise'])->name('student.exam.fee.classwise.get'); // Handbars Get All Data
+    Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ViewExamFeePayslip'])->name('student.exam.fee.payslip');
 });
