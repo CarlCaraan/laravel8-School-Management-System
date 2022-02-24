@@ -80,7 +80,7 @@ class ExamFeeController extends Controller
         $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->where('class_id', $class_id)->first();
 
         // ========= Start Niklas Laravel PDF =========
-        $pdf = PDF::loadView('backend.student.exam.exam_details_pdf', $data);
+        $pdf = PDF::loadView('backend.student.exam_fee.exam_details_pdf', $data);
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
         return $pdf->stream('document.pdf');
         // ========= End Niklas Laravel PDF =========
