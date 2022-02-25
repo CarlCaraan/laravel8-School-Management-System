@@ -27,4 +27,15 @@ class EmployeeRegistrationController extends Controller
 
         return view('backend.employee.employee_registration.employee_view', $data);
     }
+
+    public function EmployeeRegisterAdd()
+    {
+        $data['designations'] = Designation::all();
+        return view('backend.employee.employee_registration.employee_add', $data);
+    }
+
+    public function EmployeeRegisterStore(Request $request)
+    {
+
+    }
 }

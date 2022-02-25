@@ -188,6 +188,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::prefix('employees')->group(function () {
         // Employee Registration
         Route::get('/register/view', [EmployeeRegistrationController::class, 'ViewEmployeeRegister'])->name('employee.registration.view');
+        Route::get('/register/add', [EmployeeRegistrationController::class, 'EmployeeRegisterAdd'])->name('employee.registration.add');
+        Route::post('/register/store', [EmployeeRegistrationController::class, 'EmployeeRegisterStore'])->name('employee.registration.store');
 
     });
 }); // End Middleware Auth
