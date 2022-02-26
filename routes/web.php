@@ -190,6 +190,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/register/view', [EmployeeRegistrationController::class, 'ViewEmployeeRegister'])->name('employee.registration.view');
         Route::get('/register/add', [EmployeeRegistrationController::class, 'EmployeeRegisterAdd'])->name('employee.registration.add');
         Route::post('/register/store', [EmployeeRegistrationController::class, 'EmployeeRegisterStore'])->name('employee.registration.store');
+        Route::get('/register/edit/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterEdit'])->name('employee.registration.edit');
+        Route::post('/register/update/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterUpdate'])->name('employee.registration.update');
+        Route::get('/register/details/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterDetails'])->name('employee.registration.details');
+        Route::get('/register/delete/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterDelete'])->name('employee.registration.delete');
 
     });
 }); // End Middleware Auth

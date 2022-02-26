@@ -49,8 +49,9 @@
                                             <td>{{ $employee->code }}</td>
                                             @endif
                                             <td>
-                                                <a href="{{ route('designation.edit',$employee->id) }}" class="btn btn-info">Edit</a>
-                                                <a href="{{ route('designation.delete',$employee->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                                <a href="{{ route('employee.registration.edit',$employee->id) }}" class="btn btn-info">Edit</a>
+                                                <a href="{{ route('employee.registration.details',$employee->id) }}" class="btn btn-primary" target="_blank">Details</a>
+                                                <a href="{{ route('employee.registration.delete',$employee->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

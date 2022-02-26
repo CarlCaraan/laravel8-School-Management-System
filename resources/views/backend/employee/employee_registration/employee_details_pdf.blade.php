@@ -47,7 +47,7 @@
                 <p>School Address</p>
                 <p>Phone: 09559168806</p>
                 <p>Email: support@easylearningbd.com</p>
-                <p><strong>Student Registration Page</strong></p>
+                <p><strong>Employee Registration Page</strong></p>
             </td>
         </tr>
     </table>
@@ -55,83 +55,68 @@
     <table id="customers">
         <tr>
             <th width="10%">SL</th>
-            <th width="45%">Student Details</th>
-            <th width="45%">Student Data</th>
+            <th width="45%">Employee Details</th>
+            <th width="45%">Employee Data</th>
         </tr>
         <tr>
             <td>1</td>
-            <td><strong>Student Name</strong></td>
-            <td>{{ $details['student']['name'] }}</td>
+            <td><strong>Employee Name</strong></td>
+            <td>{{ $details->name }}</td>
         </tr>
         <tr>
             <td>2</td>
-            <td><strong>Student ID No</strong></td>
-            <td>{{ $details['student']['id_no'] }}</td>
+            <td><strong>Employee ID No</strong></td>
+            <td>{{ $details->id_no }}</td>
         </tr>
         <tr>
             <td>3</td>
-            <td><strong>Student Roll</strong></td>
-            <td>{{ $details->roll }}</td>
+            <td><strong>Father's Name</strong></td>
+            <td>{{ $details->father_name }}</td>
         </tr>
         <tr>
             <td>4</td>
-            <td><strong>Father's Name</strong></td>
-            <td>{{ $details['student']['father_name'] }}</td>
+            <td><strong>Mother's Name</strong></td>
+            <td>{{ $details->mother_name }}</td>
         </tr>
         <tr>
             <td>5</td>
-            <td><strong>Mother's Name</strong></td>
-            <td>{{ $details['student']['mother_name'] }}</td>
+            <td><strong>Mobile Number</strong></td>
+            <td>{{ $details->mobile }}</td>
         </tr>
         <tr>
             <td>6</td>
-            <td><strong>Mobile Number</strong></td>
-            <td>{{ $details['student']['mobile'] }}</td>
+            <td><strong>Address</strong></td>
+            <td>{{ $details->address }}</td>
         </tr>
         <tr>
             <td>7</td>
-            <td><strong>Address</strong></td>
-            <td>{{ $details['student']['address'] }}</td>
+            <td><strong>Gender</strong></td>
+            <td>{{ $details->gender }}</td>
         </tr>
         <tr>
             <td>8</td>
-            <td><strong>Gender</strong></td>
-            <td>{{ $details['student']['gender'] }}</td>
+            <td><strong>Religion</strong></td>
+            <td>{{ $details->religion }}</td>
         </tr>
         <tr>
             <td>9</td>
-            <td><strong>Religion</strong></td>
-            <td>{{ $details['student']['religion'] }}</td>
+            <td><strong>Date of Birth</strong></td>
+            <td>{{ date('d-m-Y', strtotime($details->dob)) }}</td>
         </tr>
         <tr>
             <td>10</td>
-            <td><strong>Date of Birth</strong></td>
-            <td>{{ $details['student']['dob'] }}</td>
+            <td><strong>Designation</strong></td>
+            <td>{{ $details['designation']['name'] }}</td>
         </tr>
         <tr>
             <td>11</td>
-            <td><strong>Discount</strong></td>
-            <td>{{ $details['discount']['discount'] }} %</td>
+            <td><strong>Join Date</strong></td>
+            <td>{{ date('d-m-Y', strtotime($details->join_date)) }}</td>
         </tr>
         <tr>
             <td>12</td>
-            <td><strong>Year</strong></td>
-            <td>{{ $details['student_year']['name'] }}</td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td><strong>Class</strong></td>
-            <td>{{ $details['student_class']['name'] }}</td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td><strong>Group</strong></td>
-            <td>{{ $details['student_group']['name'] }}</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td><strong>Shift</strong></td>
-            <td>{{ $details['student_shift']['name'] }}</td>
+            <td><strong>Employee Salary</strong></td>
+            <td>{{ $details->salary }}</td>
         </tr>
     </table>
     <br><br>

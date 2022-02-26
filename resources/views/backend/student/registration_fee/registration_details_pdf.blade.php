@@ -37,13 +37,13 @@
     <table id="customers">
         <tr>
             <td>
-                <h2>Easy Learning</h2>
-            </td>
-            <td>
                 <h2>
                     <?php $image_path = '/upload/easyschool.png'; ?>
                     <img src="{{ public_path(). $image_path }}" width="200" height="100" alt="">
                 </h2>
+            </td>
+            <td>
+                <h2>Easy School ERP</h2>
                 <p>School Address</p>
                 <p>Phone: 09559168806</p>
                 <p>Email: support@easylearningbd.com</p>
