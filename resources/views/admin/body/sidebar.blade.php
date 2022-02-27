@@ -168,6 +168,11 @@ $route = Route::current()->getName();
                         ($route == 'employee.salary.details') ? 'active' : '' }}">
                         <a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary</a>
                     </li>
+                    <li class="{{ ($route == 'employee.leave.view') ||
+                        ($route == 'employee.leave.edit') ||
+                        ($route == 'employee.leave.add') ? 'active' : '' }}">
+                        <a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a>
+                    </li>
                 </ul>
             </li>
 

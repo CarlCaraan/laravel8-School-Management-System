@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Student\ExamFeeController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -201,5 +202,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/salary/increment/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryIncrement'])->name('employee.salary.increment');
         Route::post('/salary/increment/store/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryIncrementStore'])->name('employee.salary.increment.store');
         Route::get('/salary/increment/details/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryDetails'])->name('employee.salary.details');
+
+        // Employee Leave
+        Route::get('/leave/view', [EmployeeLeaveController::class, 'ViewEmployeeLeave'])->name('employee.leave.view');
+        Route::get('/leave/add', [EmployeeLeaveController::class, 'EmployeeLeaveAdd'])->name('employee.leave.add');
+        Route::post('/leave/store', [EmployeeLeaveController::class, 'EmployeeLeaveStore'])->name('employee.leave.store');
+        Route::get('/leave/edit/{id}', [EmployeeLeaveController::class, 'EmployeeLeaveEdit'])->name('employee.leave.edit');
+        Route::post('/leave/update/{id}', [EmployeeLeaveController::class, 'EmployeeLeaveUpdate'])->name('employee.leave.update');
+        Route::get('/leave/delete/{id}', [EmployeeLeaveController::class, 'EmployeeLeaveDelete'])->name('employee.leave.delete');
     });
 }); // End Middleware Auth
