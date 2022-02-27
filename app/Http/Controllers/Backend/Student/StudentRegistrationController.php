@@ -20,7 +20,7 @@ class StudentRegistrationController extends Controller
     {
         $data['years'] = StudentYear::all();
         $data['classes'] = StudentClass::all();
-        
+
         $data['year_id'] = StudentYear::orderBy('id', 'DESC')->first()->id;
         $data['class_id'] = StudentClass::orderBy('id', 'DESC')->first()->id;
         // dd($data['year_id']);
@@ -33,7 +33,7 @@ class StudentRegistrationController extends Controller
     {
         $data['years'] = StudentYear::all();
         $data['classes'] = StudentClass::all();
-        
+
         $data['year_id'] = $request->year_id;
         $data['class_id'] = $request->class_id;
 
@@ -52,37 +52,58 @@ class StudentRegistrationController extends Controller
 
     public function StudentRegisterStore(Request $request)
     {
-        DB::transaction(function() use($request){
+        $validatedData = $request->validate([
+            // ========= USER TABLE =========
+            'name' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'dob' => 'required',
+
+            // ========= ASSIGN STUDENT TABLE =========
+            'year_id' => 'required',
+            'class_id' => 'required',
+            'group_id' => 'required',
+            'shift_id' => 'required',
+
+            // ========= DISCOUNT STUDENT TABLE =========
+            'discount' => 'required'
+        ]);
+
+        DB::transaction(function () use ($request) {
 
             // ========= USER TABLE =========
             // Generate Unique ID
             $check_year =  StudentYear::find($request->year_id)->name;
-            $student = User::where('usertype', 'Student')->orderBy('id','DESC')->first();
+            $student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first();
             if ($student == NULL) {
                 $first_register = 0;
-                $student_id = $first_register+1;
+                $student_id = $first_register + 1;
                 if ($student_id < 10) {
                     $id_no = '000' . $student_id;
-                }elseif ($student_id < 100) {
+                } elseif ($student_id < 100) {
                     $id_no = '00' . $student_id;
-                }elseif ($student_id < 1000) {
+                } elseif ($student_id < 1000) {
                     $id_no = '0' . $student_id;
                 }
-            }else{
-                $student = User::where('usertype', 'Student')->orderBy('id','DESC')->first()->id;
-                $student_id = $student+1;
+            } else {
+                $student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first()->id;
+                $student_id = $student + 1;
                 if ($student_id < 10) {
                     $id_no = '000' . $student_id;
-                }elseif ($student_id < 100) {
+                } elseif ($student_id < 100) {
                     $id_no = '00' . $student_id;
-                }elseif ($student_id < 1000) {
+                } elseif ($student_id < 1000) {
                     $id_no = '0' . $student_id;
                 }
-            }// End Else
-            
-            $final_id_no = $check_year.$id_no;
+            } // End Else
+
+            $final_id_no = $check_year . $id_no;
             $user = new User();
-            $code = rand(0000,9999);
+            $code = rand(0000, 9999);
 
             // Storing Data
             $user->id_no = $final_id_no;
@@ -121,13 +142,12 @@ class StudentRegistrationController extends Controller
             $discount_student->fee_category_id = '1';
             $discount_student->discount = $request->discount;
             $discount_student->save();
-
         });
-            $notification = array(
-                'message' => 'Student Registration Inserted Successfully',
-                'alert-type' => 'success',
-            );
-            return redirect()->route('student.registration.view')->with($notification);
+        $notification = array(
+            'message' => 'Student Registration Inserted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('student.registration.view')->with($notification);
     } // End Method
 
     public function StudentRegisterEdit($student_id)
@@ -144,7 +164,28 @@ class StudentRegistrationController extends Controller
 
     public function StudentRegisterUpdate(Request $request, $student_id)
     {
-        DB::transaction(function() use($request, $student_id){
+        $validatedData = $request->validate([
+            // ========= USER TABLE =========
+            'name' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'dob' => 'required',
+
+            // ========= ASSIGN STUDENT TABLE =========
+            'year_id' => 'required',
+            'class_id' => 'required',
+            'group_id' => 'required',
+            'shift_id' => 'required',
+
+            // ========= DISCOUNT STUDENT TABLE =========
+            'discount' => 'required'
+        ]);
+
+        DB::transaction(function () use ($request, $student_id) {
 
             // ========= USER TABLE =========
             $user = User::where('id', $student_id)->first();
@@ -169,7 +210,7 @@ class StudentRegistrationController extends Controller
             $user->save();
 
             // ========= ASSIGN STUDENT TABLE =========
-            $assign_student = AssignStudent::where('id',$request->id)->where('student_id',$student_id)->first(); //From hidden Input
+            $assign_student = AssignStudent::where('id', $request->id)->where('student_id', $student_id)->first(); //From hidden Input
             $assign_student->year_id = $request->year_id;
             $assign_student->class_id = $request->class_id;
             $assign_student->group_id = $request->group_id;
@@ -177,16 +218,15 @@ class StudentRegistrationController extends Controller
             $assign_student->save();
 
             // ========= DISCOUNT STUDENT TABLE =========
-            $discount_student = DiscountStudent::where('assign_student_id',$request->id)->first(); //From hidden Input
+            $discount_student = DiscountStudent::where('assign_student_id', $request->id)->first(); //From hidden Input
             $discount_student->discount = $request->discount;
             $discount_student->save();
-
         });
-            $notification = array(
-                'message' => 'Student Registration Updated Successfully',
-                'alert-type' => 'success',
-            );
-            return redirect()->route('student.registration.view')->with($notification);
+        $notification = array(
+            'message' => 'Student Registration Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('student.registration.view')->with($notification);
     }
 
     public function StudentRegisterPromotion($student_id)
@@ -203,6 +243,26 @@ class StudentRegistrationController extends Controller
 
     public function StudentRegisterPromote(Request $request, $student_id)
     {
+        $validatedData = $request->validate([
+            // ========= USER TABLE =========
+            'name' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'dob' => 'required',
+
+            // ========= ASSIGN STUDENT TABLE =========
+            'year_id' => 'required',
+            'class_id' => 'required',
+            'group_id' => 'required',
+            'shift_id' => 'required',
+
+            // ========= DISCOUNT STUDENT TABLE =========
+            'discount' => 'required'
+        ]);
         DB::transaction(function () use ($request, $student_id) {
 
             // ========= USER TABLE =========
@@ -229,7 +289,7 @@ class StudentRegistrationController extends Controller
 
             // ========= ASSIGN STUDENT TABLE =========
             AssignStudent::where('student_id', $student_id)->delete();
-            $assign_student = new AssignStudent(); 
+            $assign_student = new AssignStudent();
             $assign_student->student_id = $student_id;
             $assign_student->year_id = $request->year_id;
             $assign_student->class_id = $request->class_id;
@@ -239,7 +299,7 @@ class StudentRegistrationController extends Controller
 
             // ========= DISCOUNT STUDENT TABLE =========
             DiscountStudent::where('assign_student_id', $request->id)->delete();
-            $discount_student = new DiscountStudent(); 
+            $discount_student = new DiscountStudent();
             $discount_student->assign_student_id = $assign_student->id;
             $discount_student->fee_category_id = '1';
             $discount_student->discount = $request->discount;

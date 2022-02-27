@@ -36,6 +36,20 @@ class EmployeeRegistrationController extends Controller
 
     public function EmployeeRegisterStore(Request $request)
     {
+        $validatedData = $request->validate([
+            // ========= USER TABLE =========
+            'name' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'dob' => 'required',
+            'designation_id' => 'required',
+            'salary' => 'required',
+            'join_date' => 'required',
+        ]);
         DB::transaction(function () use ($request) {
 
             // ========= USER TABLE =========
@@ -121,6 +135,18 @@ class EmployeeRegistrationController extends Controller
 
     public function EmployeeRegisterUpdate(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            // ========= USER TABLE =========
+            'name' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'religion' => 'required',
+            'dob' => 'required',
+            'designation_id' => 'required',
+        ]);
         $user = User::find($id);
 
         // Storing Data
@@ -161,7 +187,7 @@ class EmployeeRegistrationController extends Controller
         return $pdf->stream('document.pdf');
         // ========= End Niklas Laravel PDF =========
     }
-    
+
     public function EmployeeRegisterDelete($id)
     {
         $user = User::where('id', $id)->first();

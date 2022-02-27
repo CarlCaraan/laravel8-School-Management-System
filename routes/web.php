@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Student\ExamFeeController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
+use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -195,5 +196,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/register/details/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterDetails'])->name('employee.registration.details');
         Route::get('/register/delete/{id}', [EmployeeRegistrationController::class, 'EmployeeRegisterDelete'])->name('employee.registration.delete');
 
+        // Employee Salary
+        Route::get('/salary/view', [EmployeeSalaryController::class, 'ViewEmployeeSalary'])->name('employee.salary.view');
+        Route::get('/salary/increment/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryIncrement'])->name('employee.salary.increment');
+        Route::post('/salary/increment/store/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryIncrementStore'])->name('employee.salary.increment.store');
+        Route::get('/salary/increment/details/{id}', [EmployeeSalaryController::class, 'EmployeeSalaryDetails'])->name('employee.salary.details');
     });
 }); // End Middleware Auth
