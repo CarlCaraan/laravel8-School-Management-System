@@ -173,6 +173,11 @@ $route = Route::current()->getName();
                         ($route == 'employee.leave.add') ? 'active' : '' }}">
                         <a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a>
                     </li>
+                    <li class="{{ ($route == 'employee.attendance.view') ||
+                        ($route == 'employee.attendance.edit') ||
+                        ($route == 'employee.attendance.add') ? 'active' : '' }}">
+                        <a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a>
+                    </li>
                 </ul>
             </li>
 
