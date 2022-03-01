@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
+use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -164,7 +165,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/register/promotion/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromotion'])->name('student.registration.promotion'); // Promotion Edit View
         Route::post('/register/promote/{student_id}', [StudentRegistrationController::class, 'StudentRegisterPromote'])->name('student.registration.promote'); // Promotion Function
         Route::get('/register/delete/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDelete'])->name('student.registration.delete');
-        Route::get('/register/details/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDetails'])->name('student.registration.details'); // Promotion Edit View
+        Route::get('/register/details/{student_id}', [StudentRegistrationController::class, 'StudentRegisterDetails'])->name('student.registration.details'); 
 
         // Student Roll Generate
         Route::get('/roll/generate/view', [StudentRollController::class, 'ViewStudentRoll'])->name('roll.generate.view');
@@ -219,5 +220,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/attendance/edit/{date}', [EmployeeAttendanceController::class, 'EmployeeAttendanceEdit'])->name('employee.attendance.edit');
         Route::post('/attendance/update', [EmployeeAttendanceController::class, 'EmployeeAttendanceUpdate'])->name('employee.attendance.update');
         Route::get('/attendance/details/{date}', [EmployeeAttendanceController::class, 'EmployeeAttendanceDetails'])->name('employee.attendance.details');
+
+        // Employee Monthly Salary
+        Route::get('/monthly/salary/view', [MonthlySalaryController::class, 'MonthlySalaryDetails'])->name('employee.monthly_salary.view');
+        Route::get('/monthly/salary/get', [MonthlySalaryController::class, 'MonthlySalaryGet'])->name('employee.monthly_salary.get'); // Handlebars Get All Data
+        Route::get('/monthly/salary/payslip{employee_id}', [MonthlySalaryController::class, 'MonthlySalaryPayslip'])->name('employee.monthly_salary.payslip'); 
     });
 }); // End Middleware Auth

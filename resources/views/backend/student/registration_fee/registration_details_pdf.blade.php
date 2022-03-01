@@ -177,6 +177,8 @@
             <td>{{ $finalfee }} $</td>
         </tr>
     </table>
+    <br><br>
+    <i style="font-size: 10px; float-right;">Print Data : {{ date("d M Y") }}</i>
 </body>
 
 </html>

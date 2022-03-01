@@ -175,8 +175,14 @@ $route = Route::current()->getName();
                     </li>
                     <li class="{{ ($route == 'employee.attendance.view') ||
                         ($route == 'employee.attendance.edit') ||
-                        ($route == 'employee.attendance.add') ? 'active' : '' }}">
+                        ($route == 'employee.attendance.add') ||
+                        ($route == 'employee.attendance.details') ? 'active' : '' }}">
                         <a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a>
+                    </li>
+                    <li class="{{ ($route == 'employee.monthly_salary.view') ||
+                        ($route == 'employee.monthly_salary.edit') ||
+                        ($route == 'employee.monthly_salary.add') ? 'active' : '' }}">
+                        <a href="{{ route('employee.monthly_salary.view') }}"><i class="ti-more"></i>Employee Monthly Salary</a>
                     </li>
                 </ul>
             </li>
