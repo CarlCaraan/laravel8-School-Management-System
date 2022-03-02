@@ -134,7 +134,7 @@
         var assign_subject_id = $('#assign_subject_id').val();
         var exam_type_id = $('#exam_type_id').val();
         $.ajax({
-            url: "{{ route('student.marks.edit.getstudents')}}",
+            url: "{{ route('marks.edit.getstudents')}}",
             type: "GET",
             data: {
                 'year_id': year_id,

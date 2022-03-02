@@ -201,8 +201,10 @@ $route = Route::current()->getName();
                     <li class="{{ ($route == 'marks.entry.edit') ? 'active' : '' }}">
                         <a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Marks Edit</a>
                     </li>
-                    <li class="{{ ($route == 'marks.entry.grade') ? 'active' : '' }}">
-                        <a href="{{ route('marks.entry.grade') }}"><i class="ti-more"></i>Marks Grade</a>
+                    <li class="{{ ($route == 'marks.grade.view') ||
+                        ($route == 'marks.grade.add') ||
+                        ($route == 'marks.grade.edit') ? 'active' : '' }}">
+                        <a href="{{ route('marks.grade.view') }}"><i class="ti-more"></i>Marks Grade</a>
                     </li>
                 </ul>
             </li>

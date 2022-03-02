@@ -238,11 +238,16 @@ Route::group(['middleware' => 'auth'], function () {
 
         // Marks Edit
         Route::get('/entry/edit', [MarksController::class, 'MarksEdit'])->name('marks.entry.edit');
-        Route::get('/entry/edit/getstudent', [MarksController::class, 'MarksEditGetStudent'])->name('student.marks.edit.getstudents');
+        Route::get('/entry/edit/getstudent', [MarksController::class, 'MarksEditGetStudent'])->name('marks.edit.getstudents');
         Route::post('/entry/update', [MarksController::class, 'MarksUpdate'])->name('marks.entry.update');
 
         //Marks Grade
-        Route::get('/grade/view', [GradeController::class, 'ViewMarksGrade'])->name('marks.entry.grade');
+        Route::get('/grade/view', [GradeController::class, 'ViewMarksGrade'])->name('marks.grade.view');
+        Route::get('/grade/add', [GradeController::class, 'MarksGradeAdd'])->name('marks.grade.add');
+        Route::post('/grade/store', [GradeController::class, 'MarksGradeStore'])->name('marks.grade.store');
+        Route::get('/grade/edit/{id}', [GradeController::class, 'MarksGradeEdit'])->name('marks.grade.edit');
+        Route::post('/grade/update/{id}', [GradeController::class, 'MarksGradeUpdate'])->name('marks.grade.update');
+        Route::get('/grade/delete/{id}', [GradeController::class, 'MarksGradeDelete'])->name('marks.grade.delete');
         
     });
     Route::get('/marks/getsubject', [DefaultController::class, 'GetSubject'])->name('marks.getsubject');
