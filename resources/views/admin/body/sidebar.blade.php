@@ -209,6 +209,25 @@ $route = Route::current()->getName();
                 </ul>
             </li>
 
+            <li class="treeview {{ ($prefix == '/accounts') ? 'active' : '' }}">
+                <a href="#">
+                    <i data-feather="menu"></i> <span>Accounts Management</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'student.fee.view') ||
+                        ($route == 'student.fee.add') ? 'active' : '' }}">
+                        <a href="{{ route('student.fee.view') }}"><i class="ti-more"></i>Student Fee</a>
+                    </li>
+                    <li class="{{ ($route == 'account.salary.view') ||
+                        ($route == 'account.salary.add') ? 'active' : '' }}">
+                        <a href="{{ route('account.salary.view') }}"><i class="ti-more"></i>Employee Salary</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="header nav-small-cap">User Interface</li>
 
             <li class="treeview">

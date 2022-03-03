@@ -27,6 +27,8 @@ use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Marks\MarksController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Marks\GradeController;
+use App\Http\Controllers\Backend\Account\StudentFeeController;
+use App\Http\Controllers\Backend\Account\AccountSalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -252,5 +254,17 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::get('/marks/getsubject', [DefaultController::class, 'GetSubject'])->name('marks.getsubject');
     Route::get('/marks/getstudent', [DefaultController::class, 'GetStudent'])->name('student.marks.getstudents');
+
+    // ========= Accounts Management =========
+    Route::prefix('accounts')->group(function () {
+        // Student Fee
+        Route::get('/student/fee/view', [StudentFeeController::class, 'ViewStudentFee'])->name('student.fee.view');
+        Route::get('/student/fee/add', [StudentFeeController::class, 'StudentFeeAdd'])->name('student.fee.add');
+        Route::get('/student/fee/student', [StudentFeeController::class, 'StudentFeeGetStudent'])->name('student.fee.getstudent');
+        Route::post('/student/fee/store', [StudentFeeController::class, 'StudentFeeStore'])->name('student.fee.store');
+
+        // Employee Salary
+        Route::get('/account/salary/view', [AccountSalaryController::class, 'ViewAccountSalary'])->name('account.salary.view');
+    });
 
 }); // End Middleware Auth
