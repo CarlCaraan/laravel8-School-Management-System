@@ -76,7 +76,7 @@ class StudentFeeController extends Controller
             $finalfee = (int)$orginalfee - (int)$discountablefee;
 
             $html[$key]['tdsource'] .= '<td>' . '<input type="text" name="amount[]" value="' . $finalfee . ' " class="form-control" readonly' . '</td>';
-            $html[$key]['tdsource'] .= '<td>' . '<input type="hidden" name="student_id[]" value="' . $std->student_id . '">' . '<input type="checkbox" name="checkmanage[]" id="id{{$key}}" value="' . $key . '" ' . $checked . ' style="transform: scale(1.5);margin-left: 10px;"> <label for="id{{$key}}"> </label> ' . '</td>';
+            $html[$key]['tdsource'] .= '<td>' . '<input type="hidden" name="student_id[]" value="' . $std->student_id . '">' . '<input type="checkbox" name="checkmanage[]" id="' . $key . '" value="' . $key . '" ' . $checked . ' style="transform: scale(1.5);margin-left: 10px;"> <label for="' . $key . '"> </label> ' . '</td>';
         }
         return response()->json(@$html);
     } // End Method
@@ -95,7 +95,7 @@ class StudentFeeController extends Controller
                 $data->date = $date;
                 $data->fee_category_id = $request->fee_category_id;
                 $data->student_id = $request->student_id[$checkdata[$i]];
-                $data->amount = $request->amount[$i];
+                $data->amount = $request->amount[$checkdata[$i]];
                 $data->save();
             } // End For Loop
         } // End if
@@ -113,6 +113,5 @@ class StudentFeeController extends Controller
             );
             return redirect()->back()->with($notification);
         } 
-
     } // End Method 
 }
