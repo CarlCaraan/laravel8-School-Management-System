@@ -29,6 +29,7 @@ use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Marks\GradeController;
 use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
+use App\Http\Controllers\Backend\Account\OtherCostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -268,6 +269,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/account/salary/add', [AccountSalaryController::class, 'AccountSalaryAdd'])->name('account.salary.add');
         Route::get('/account/salary/getemployee', [AccountSalaryController::class, 'AccountSalaryGetEmployee'])->name('account.salary.getemployee');
         Route::post('/account/salary/store', [AccountSalaryController::class, 'AccountSalaryStore'])->name('account.salary.store');
+
+        // Other Cost
+        Route::get('/other/cost/view', [OtherCostController::class, 'ViewOtherCost'])->name('other.cost.view');
+        Route::get('/other/cost/add', [OtherCostController::class, 'OtherCostAdd'])->name('other.cost.add');
+        Route::post('/other/cost/store', [OtherCostController::class, 'OtherCostStore'])->name('other.cost.store');
     });
 
 }); // End Middleware Auth
