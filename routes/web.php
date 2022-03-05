@@ -30,6 +30,7 @@ use App\Http\Controllers\Backend\Marks\GradeController;
 use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Account\OtherCostController;
+use App\Http\Controllers\Backend\Report\ProfitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -274,6 +275,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/other/cost/view', [OtherCostController::class, 'ViewOtherCost'])->name('other.cost.view');
         Route::get('/other/cost/add', [OtherCostController::class, 'OtherCostAdd'])->name('other.cost.add');
         Route::post('/other/cost/store', [OtherCostController::class, 'OtherCostStore'])->name('other.cost.store');
+        Route::get('/other/cost/edit/{id}', [OtherCostController::class, 'OtherCostEdit'])->name('other.cost.edit');
+        Route::post('/other/cost/update/{id}', [OtherCostController::class, 'OtherCostUpdate'])->name('other.cost.update');
+        Route::get('/other/cost/delete/{id}', [OtherCostController::class, 'OtherCostDelete'])->name('other.cost.delete');
+    });
+
+    // ========= Reports Management =========
+    Route::prefix('reports')->group(function () {
+        // Monthly Profit
+        Route::get('/monthly/profit/view', [ProfitController::class, 'ViewMonthlyProfit'])->name('monthly.profit.view');
+        Route::get('/monthly/profit/datewise/get', [ProfitController::class, 'MonthlyProfitDatewiseGet'])->name('monthly.profit.datewise.get');
+        Route::get('/monthly/profit/pdf', [ProfitController::class, 'MonthlyProfitPdf'])->name('monthly.profit.pdf');
+
     });
 
 }); // End Middleware Auth

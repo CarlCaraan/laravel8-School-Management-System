@@ -76,7 +76,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         @unlink(public_path('upload/user_images/' . $user->image));
-
         $user->delete();
 
         $notification = array(

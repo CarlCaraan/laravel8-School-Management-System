@@ -37,6 +37,12 @@ class OtherCostController extends Controller
 
     public function OtherCostStore(Request $request)
     {
+        $validatedData = $request->validate([
+            'date' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
+        ]);
+
         $cost = new AccountOtherCost();
         $cost->date = date('Y-m-d', strtotime($request->date));
         $cost->amount = $request->amount;
@@ -52,6 +58,54 @@ class OtherCostController extends Controller
 
         $notification = array(
             'message' => 'Other Cost Inserted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('other.cost.view')->with($notification);
+    }
+    
+    public function OtherCostEdit($id)
+    {
+        $data['editData'] = AccountOtherCost::find($id);
+        return view('backend.account.other_cost.other_cost_edit', $data);
+    }
+
+    public function OtherCostUpdate(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'date' => 'required',
+            'amount' => 'required',
+            'description' => 'required',
+        ]);
+
+        $cost = AccountOtherCost::find($id);
+        $cost->date = date('Y-m-d', strtotime($request->date));
+        $cost->amount = $request->amount;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            @unlink(public_path('upload/cost_images/' . $cost->image));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/cost_images'), $filename);
+            $cost['image'] = $filename;
+        }
+        $cost->description = $request->description;
+        $cost->save();
+
+        $notification = array(
+            'message' => 'Other Cost Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('other.cost.view')->with($notification);
+    }
+
+    public function OtherCostDelete($id)
+    {
+        $cost = AccountOtherCost::find($id);
+        @unlink(public_path('upload/cost_images/' . $cost->image));
+        $cost->delete();
+
+        $notification = array(
+            'message' => 'Other Cost Deleted Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('other.cost.view')->with($notification);

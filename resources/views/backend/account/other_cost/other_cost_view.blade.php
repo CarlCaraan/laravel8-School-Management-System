@@ -40,7 +40,10 @@
                                             <td>
                                                 <img class="rounded" style="width: 70px; height: 50px;" src="{{ (!empty($value->image)) ? url('upload/cost_images/'.$value->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
                                             </td>
-                                            <td><a href="" class="btn btn-info">Edit</a></td>
+                                            <td>
+                                                <a href="{{ route('other.cost.edit', $value->id) }}" class="btn btn-info">Edit</a>
+                                                <a href="{{ route('other.cost.delete', $value->id) }}" id="delete" class="btn btn-danger">Delete</a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

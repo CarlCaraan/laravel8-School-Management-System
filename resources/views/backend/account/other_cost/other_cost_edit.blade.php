@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') Add Other Cost | ASMS @endsection
+@section('title') Edit Other Cost | ASMS @endsection
 
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,13 +13,13 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Add Other Cost</h4>
+                    <h4 class="box-title">Edit Other Cost</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="POST" action="{{ route('other.cost.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('other.cost.update', $editData->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -29,7 +29,7 @@
                                                 <div class="form-group">
                                                     <h5>Amount<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="amount" class="form-control">
+                                                        <input type="text" name="amount" class="form-control" value="{{ $editData->amount }}">
                                                     </div>
                                                     @error('amount')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -41,7 +41,7 @@
                                                 <div class="form-group">
                                                     <h5>Date<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="date" name="date" class="form-control">
+                                                        <input type="date" name="date" class="form-control" value="{{ $editData->date }}">
                                                     </div>
                                                     @error('date')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -64,7 +64,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <div class="controls">
-                                                        <img style="width: 100px; border: 1px solid #000; height: 100px;" id="show_image" src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="">
+                                                        <img style="width: 70px; height: 50px; margin-top: 25px;" id="show_image" src="{{ (!empty($editData->image)) ? url('upload/cost_images/'.$editData->image) : url('upload/no_image.jpg') }}" alt="">
                                                     </div>
                                                 </div>
                                             </div> <!-- End Col -->
@@ -75,7 +75,7 @@
                                                 <div class="form-group">
                                                     <h5>Description<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <textarea name="description" id="description" class="form-control" aria-invalid="false"></textarea>
+                                                        <textarea name="description" id="description" class="form-control" required="" aria-invalid="false">{{ $editData->description }}</textarea>
                                                         <div class="help-block"></div>
                                                     </div>
                                                     @error('description')
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info btn-rounded mb-5" value="Submit">
+                                    <input type="submit" class="btn btn-info btn-rounded mb-5" value="Update">
                                 </div>
                             </form>
 
