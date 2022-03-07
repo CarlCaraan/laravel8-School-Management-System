@@ -40,7 +40,7 @@
                                                 <div class="form-group">
                                                     <h5>Grade Point<span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="grade_point" class="form-control" value="{{ $editData->grade_name }}">
+                                                        <input type="text" name="grade_point" class="form-control" value="{{ $editData->grade_point }}">
                                                     </div>
                                                     @error('grade_point')
                                                     <span class="text-danger">{{ $message }}</span>
