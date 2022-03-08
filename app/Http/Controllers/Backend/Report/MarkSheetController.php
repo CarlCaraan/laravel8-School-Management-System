@@ -18,7 +18,7 @@ class MarkSheetController extends Controller
         $data['classes'] = StudentClass::all();
         $data['exam_types'] = ExamType::all();
 
-        return view('backend.marksheet.marksheet_generate_view', $data);
+        return view('backend.report.marksheet.marksheet_generate_view', $data);
     }
 
     public function MarkSheetGenerateGet(Request $request)
@@ -36,7 +36,7 @@ class MarkSheetController extends Controller
             $allMarks = StudentMarks::with(['assign_subject', 'student_year'])->where('year_id', $year_id)->where('class_id', $class_id)->where('class_id', $class_id)->where('exam_type_id', $exam_type_id)->where('id_no', $id_no)->get();
             // dd($allMarks->toArray());
             $allGrades = MarksGrade::all();
-            return view('backend.marksheet.marksheet_pdf', compact('allMarks', 'allGrades','count_fail'));
+            return view('backend.report.marksheet.marksheet_pdf', compact('allMarks', 'allGrades','count_fail'));
         }else{
             $notification = array(
                 'message' => 'Sorry this credentials does not match',

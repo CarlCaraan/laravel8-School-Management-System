@@ -249,6 +249,10 @@ $route = Route::current()->getName();
                         ($route == 'marksheet.generate.get')? 'active' : '' }}">
                         <a href="{{ route('marksheet.generate.view') }}"><i class="ti-more"></i>MarkSheet Generate</a>
                     </li>
+                    <li class="{{ ($route == 'attendance.report.view') ||
+                        ($route == 'attendance.report.get') ? 'active' : '' }}">
+                        <a href="{{ route('attendance.report.view') }}"><i class="ti-more"></i>Attendance Report</a>
+                    </li>
                 </ul>
             </li>
         </ul>
