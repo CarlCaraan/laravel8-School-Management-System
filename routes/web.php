@@ -34,6 +34,7 @@ use App\Http\Controllers\Backend\Report\ProfitController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
 use App\Http\Controllers\Backend\Report\AttendanceReportController;
 use App\Http\Controllers\Backend\Report\ResultReportController;
+use App\Http\Controllers\Backend\Report\StudentIdcardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -301,6 +302,10 @@ Route::group(['middleware' => 'auth'], function () {
         // Student Result
         Route::get('/student/result/view', [ResultReportController::class, 'ViewStudentResult'])->name('student.result.view');
         Route::get('/student/result/get', [ResultReportController::class, 'StudentResultGet'])->name('student.result.get');
+        
+        // Student Id Card
+        Route::get('/student/idcard/view', [StudentIdcardController::class, 'ViewStudentIdcard'])->name('student.idcard.view');
+        Route::get('/student/idcard/get', [StudentIdcardController::class, 'StudentIdcardGet'])->name('student.idcard.get');
     });
 
 }); // End Middleware Auth
