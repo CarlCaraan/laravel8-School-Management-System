@@ -5,9 +5,9 @@
                 <a class="nav-link" href="javascript:void(0)">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">www.easylearningbd.com</a>
+                <a class="nav-link" href="https://dev-caraan.netlify.app/" target="_blank">www.dev-caraan.netlify.com</a>
             </li>
         </ul>
     </div>
-    &copy; 2020 <a href="#">Psd to Html Expert</a>. All Rights Reserved.
+    &copy; 2021 <a href="#">Caraan Productions</a>. All Rights Reserved.
 </footer>
