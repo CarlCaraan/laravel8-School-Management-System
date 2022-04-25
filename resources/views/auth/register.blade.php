@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>Easy ERP - Registration </title>
+    <title>Registration | ASMS</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
@@ -33,7 +33,7 @@
                             <p class="text-white-50">Register a new membership</p>
                         </div>
                         <div class="p-30 rounded30 box-shadowed b-2 b-dashed">
-                        <x-jet-validation-errors class="mb-4 text-light" />
+                            <x-jet-validation-errors class="mb-4 text-light" />
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
